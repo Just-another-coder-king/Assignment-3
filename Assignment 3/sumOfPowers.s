@@ -8,16 +8,15 @@ sumOfPowers:
     mov $1, %ecx   #counter i =1 
 
 loop:
-    cmp %eax, %edi
+    cmp %edi, %ecx #compare coutner with n
     jg Done
-    mov %ecx, %edx.   #edx = i
+    mov %ecx, %edx   #edx = i
     imul %ecx, %edx   #edx = i * i
-    mov %edx, %eax.  #sum += i*i
+    add %edx, %eax  #sum += i*i
     inc %ecx #increase counter
 
     jmp loop #back to loop
 
 Done: 
-
     pop %rbp
     ret 
